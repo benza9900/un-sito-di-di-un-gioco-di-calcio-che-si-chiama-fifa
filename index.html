@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Storia del FIFA</title>
+    <title>La Storia del FIFA - Un'Evoluzione Leggendaria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,133 +12,287 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Animazioni di sfondo */
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 200, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 200, 0, 0.6); }
+        }
+        
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         header {
-            background-color: #1a1a1a;
+            position: relative;
+            background: linear-gradient(135deg, #1a1629 0%, #2d1b3d 50%, #1a1629 100%);
             color: white;
-            padding: 2rem;
+            padding: 4rem 2rem;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border-bottom: 3px solid #ffc200;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 194, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(100, 220, 255, 0.1) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
         }
         
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffc200 0%, #ffed4e 50%, #ffc200 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+            animation: slide-in 0.8s ease-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         header p {
-            font-size: 1.2rem;
-            color: #ffd700;
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            position: relative;
+            z-index: 1;
+            animation: slide-in 1s ease-out;
         }
         
-        container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+        .container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
         }
         
         .era {
-            background: white;
-            margin: 2rem 0;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            border-left: 5px solid #ffd700;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 245, 250, 0.98) 100%);
+            margin: 3rem 0;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border-left: 6px solid #ffc200;
+            position: relative;
+            overflow: hidden;
+            animation: slide-in 0.8s ease-out backwards;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .era:nth-child(1) { animation-delay: 0.2s; }
+        .era:nth-child(2) { animation-delay: 0.4s; }
+        .era:nth-child(3) { animation-delay: 0.6s; }
+        .era:nth-child(4) { animation-delay: 0.8s; }
+        
+        .era::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 194, 0, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .era:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(255, 194, 0, 0.2);
+            border-left-color: #ffed4e;
+        }
+        
+        .era-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
         }
         
         .era h2 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
+            color: #1a1629;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, #ffc200 0%, #1a1629 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .era p {
             margin-bottom: 1rem;
             text-align: justify;
+            color: #2a2a2a;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 1;
+            line-height: 1.9;
         }
         
         footer {
-            background-color: #1a1a1a;
+            background: linear-gradient(135deg, #1a1629 0%, #2d1b3d 100%);
             color: white;
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+            border-top: 3px solid #ffc200;
         }
         
         footer p {
-            font-size: 0.9rem;
+            font-size: 1rem;
+            color: #c0c0c0;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .era {
+                padding: 2rem;
+            }
+            
+            .era h2 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>⚽ La Storia del FIFA ⚽</h1>
-        <p>Un viaggio attraverso l'evoluzione del gioco calcistico più famoso</p>
+        <h1>⚽ LA STORIA DEL FIFA ⚽</h1>
+        <p>Un viaggio epico attraverso l'evoluzione del gioco di calcio più amato al mondo</p>
     </header>
     
-    <container>
+    <div class="container">
         <div class="era">
+            <div class="era-icon">🎮</div>
             <h2>Gli Inizi: 1993-1999</h2>
             <p>
                 FIFA 94 è stato il primo gioco della serie, lanciato da EA Sports nel 1993 per Sega Genesis. 
                 Il gioco ha rivoluzionato il modo di giocare a calcio virtuale, offrendo la prima esperienza 
                 realistica di una partita di calcio su console. Con grafica primitiva ma innovativa per l'epoca, 
                 FIFA 94 ha gettato le basi per quello che sarebbe diventato il franchise calcistico più popolare 
-                al mondo.
+                al mondo. Questo periodo ha segnato l'inizio di una rivoluzione che avrebbe cambiato l'industria 
+                dei videogiochi per sempre.
             </p>
         </div>
         
         <div class="era">
+            <div class="era-icon">💫</div>
             <h2>L'Era della PlayStation: 2000-2005</h2>
             <p>
                 Con l'arrivo della PlayStation, FIFA è entrato in una nuova dimensione grafica. I giochi di 
                 questo periodo hanno introdotto modalità di gioco più sofisticate, migliore intelligenza artificiale 
                 e squadre licenziate ufficialmente. FIFA 2001, FIFA 2002 e FIFA 2003 hanno rappresentato 
-                un salto qualitativo enorme nella serie, attirando milioni di giocatori in tutto il mondo.
+                un salto qualitativo enorme nella serie, attirando milioni di giocatori in tutto il mondo. 
+                La qualità costruttiva ha raggiunto livelli sorprendenti per l'epoca, con animazioni fluide 
+                e IA sempre più intelligente e realistica.
             </p>
         </div>
         
         <div class="era">
+            <div class="era-icon">🚀</div>
             <h2>Era Moderna: 2006-2015</h2>
             <p>
                 L'introduzione di nuove console (Xbox 360 e PlayStation 3) ha portato grafiche ancora più realistiche 
-                e nuove feature di gameplay. FIFA ha iniziato a includere modalità online, permettendo ai giocatori 
-                di competere globalmente. In questo periodo sono state introdotte icone leggendarie e statistiche 
-                migliorate dei giocatori, rendendo il gioco ancora più immersivo e competitivo.
+                e nuove feature di gameplay sorprendenti. FIFA ha iniziato a includere modalità online, permettendo ai giocatori 
+                di competere globalmente in tempo reale. In questo periodo sono state introdotte icone leggendarie e statistiche 
+                migliorate dei giocatori, rendendo il gioco ancora più immersivo, competitivo e coinvolgente. 
+                Il calcio virtuale stava finalmente raggiungendo il suo apice di realismo.
             </p>
         </div>
         
         <div class="era">
+            <div class="era-icon">👑</div>
             <h2>La Rivoluzione del FUT: 2016-Presente</h2>
             <p>
-                FIFA Ultimate Team (FUT) è diventato il cuore della serie, trasformando FIFA in un fenomeno globale. 
+                FIFA Ultimate Team (FUT) è diventato il cuore della serie, trasformando FIFA in un fenomeno globale senza precedenti. 
                 Con il passaggio alle console next-gen (PlayStation 5 e Xbox Series X), la serie ha raggiunto vette 
-                di realismo mai viste prima. I giocatori possono costruire squadre personalizzate, partecipare a tornei 
-                e competere in una comunità di milioni di utenti. FIFA è diventato uno dei giochi più giocati al mondo, 
-                con milioni di giocatori attivi ogni singolo giorno.
+                di realismo mai viste prima. I giocatori possono costruire squadre personalizzate, partecipare a tornei avvincenti 
+                e competere in una comunità di milioni di utenti appassionati. FIFA è diventato uno dei giochi più giocati al mondo, 
+                con milioni di giocatori attivi ogni singolo giorno in una competizione senza fine.
             </p>
         </div>
         
         <div class="era">
-            <h2>El Futuro: EA Sports FC</h2>
+            <div class="era-icon">✨</div>
+            <h2>Il Futuro: EA Sports FC</h2>
             <p>
-                Nel 2023, EA Sports ha introdotto una nuova era con EA Sports FC, mantenendo tutti gli elementi 
-                amati dai giocatori ma con un nuovo nome e identità. La serie continua a evolversi con migliori 
-                grafiche, gameplay più realistico e modalità innovative, confermando il suo status di simulatore 
-                di calcio numero uno al mondo.
+                Nel 2023, EA Sports ha introdotto una nuova era entusiasmante con EA Sports FC, mantenendo tutti gli elementi 
+                amati dai giocatori ma con un nuovo nome e identità rinnovata. La serie continua a evolversi con migliori 
+                grafiche incredibili, gameplay più realistico e modalità innovative, confermando il suo status di simulatore 
+                di calcio numero uno al mondo. Il futuro del calcio virtuale è più brillante che mai, con innovazioni 
+                continue e possibilità inesplorate che attendono i giocatori di tutto il pianeta.
             </p>
         </div>
-    </container>
+    </div>
     
     <footer>
-        <p>&copy; 2026 La Storia del FIFA - Un tributo al gioco calcistico più amato del mondo</p>
+        <p>&copy; 2026 La Storia del FIFA - Un tributo al gioco calcistico più amato del mondo 🌟</p>
     </footer>
 </body>
 </html>
